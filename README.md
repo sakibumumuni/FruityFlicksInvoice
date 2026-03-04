@@ -30,6 +30,7 @@
 ## 📌 About the Project
 
 The Fruity Flicks Invoice Management System is a Flask-powered web application designed to help businesses manage their invoicing process efficiently. It allows users to [generate, download, view and search existing invoices, edit and delete invoices, track the payment status of invoices, categorize most frequent client groups to optimze sales, and save invoices in a database, all in one sysytem].
+# Managing
 
 ---
 
