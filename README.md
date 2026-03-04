@@ -181,4 +181,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - Email: [codeos285@gmail.com]
 - GitHub: [https://github.com/sakibumumuni]
-- Project Link: [https://github.com/sakibumumuni/code-os-invoice]
+- Project Link: [https://github.com/sakibumumuni/code_os_invoice]
