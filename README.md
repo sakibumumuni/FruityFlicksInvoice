@@ -29,19 +29,19 @@
 
 ## 📌 About the Project
 
-The Fruity Flicks Invoice Management System is a Flask-powered web application designed to help Fruity Flicks manage their invoicing process efficiently. It allows users to [add a brief description of core functionality here].
+The Fruity Flicks Invoice Management System is a Flask-powered web application designed to help businesses manage their invoicing process efficiently. It allows users to [generate, download, view and search existing invoices, edit and delete invoices, track the payment status of invoices, categorize most frequent client groups to optimze sales, and save invoices in a database, all in one sysytem].
 
 ---
 
 ## ✨ Features
 
-- [ ] Create and generate invoices
+- [ ] Generate invoices
 - [ ] View and search existing invoices
 - [ ] Edit and delete invoices
 - [ ] Track payment status (paid / unpaid / pending)
-- [ ] Export invoices to PDF *(if applicable)*
-- [ ] User authentication and role management *(if applicable)*
-- [ ] [Add more features as needed]
+- [ ] Download invoice as pdf
+- [ ] Categorize most frequent client groups [to note target sales clientss]
+- [ ] Save invoices in a single database
 
 ---
 
@@ -54,7 +54,7 @@ The Fruity Flicks Invoice Management System is a Flask-powered web application d
 | HTML5 | Page structure / Jinja2 templating |
 | CSS3 | Styling and layout |
 | JavaScript | Frontend interactivity |
-| [e.g. SQLite / PostgreSQL] | Data storage |
+|  SQLite3 / PostgreSQL / MongoDb] | Data storage |
 
 ---
 
@@ -64,7 +64,7 @@ The Fruity Flicks Invoice Management System is a Flask-powered web application d
 
 - Python 3.x
 - pip
-- [Any other prerequisites e.g. virtualenv]
+- [virtualenv]
 
 ### Installation
 
@@ -109,12 +109,12 @@ The Fruity Flicks Invoice Management System is a Flask-powered web application d
 
 ## 💻 Usage
 
-1. Log in with your credentials *(if authentication is implemented)*
-2. Navigate to the **Invoices** section
-3. Fill in client details, items, and amounts 
-4. Click **New Invoice** to create an invoice (once created, te invoice is saved ina database/ MongoDb / postgreSQL or SQLite3)
-5. Save invoice as a pdf
-6. [Add any additional steps]
+1. Navigate to the **Invoices** section
+2. Fill in client details, items, and amounts 
+4. Click **New Invoice** to create an invoice (once created, the invoice is saved in a database/ MongoDb / postgreSQL or SQLite3)
+5. Download invoice as a pdf
+6. [View all issued invoices in a database, by clicking a daatabase button]
+7. View a chart that has the most frequent customer groups.
 
 ---
 
