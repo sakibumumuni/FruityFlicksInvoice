@@ -124,10 +124,7 @@ The Code OS Invoice Management System is a Flask-powered web application designe
 ```
 code-os-invoice/
 ├── app/
-│   ├── __init__.py
-│   ├── routes.py
-│   ├── models.py
-│   ├── forms.py
+│   ├── main.py
 │   ├── static/
 │   │   ├── css/
 │   │   │   └── style.css
@@ -135,11 +132,15 @@ code-os-invoice/
 │   │       └── main.js
 │   └── templates/
 │       ├── base.html
-│       ├── index.html
-│       └── invoices/
-│           ├── list.html
-│           ├── create.html
-│           └── detail.html
+│       ├── dashboard.html
+        |-- invoicedatabase.html
+        |-- client.html
+        |-- reports.html
+        |-- settings.html
+        |-- createinvoice.html
+│           
+│          
+│      
 ├── migrations/
 ├── .env.example
 ├── config.py
