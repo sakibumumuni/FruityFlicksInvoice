@@ -1,4 +1,4 @@
-# 🍓 Fruity Flicks – Invoice Management System
+#  Code OS – Invoice Management System
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Flask-2.x-black?logo=flask)
