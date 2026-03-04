@@ -111,9 +111,9 @@ The Fruity Flicks Invoice Management System is a Flask-powered web application d
 
 1. Log in with your credentials *(if authentication is implemented)*
 2. Navigate to the **Invoices** section
-3. Click **New Invoice** to create an invoice
-4. Fill in client details, items, and amounts
-5. Save or export the invoice
+3. Fill in client details, items, and amounts 
+4. Click **New Invoice** to create an invoice (once created, te invoice is saved ina database/ MongoDb / postgreSQL or SQLite3)
+5. Save invoice as a pdf
 6. [Add any additional steps]
 
 ---
