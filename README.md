@@ -6,7 +6,7 @@
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-> A web-based invoice management system built with Flask for Fruity Flicks, enabling seamless creation, tracking, and management of invoices.
+> A web-based invoice management system built with Flask for businesses, enabling seamless creation, tracking, and management of invoices.
 
 ---
 
@@ -71,8 +71,8 @@ The Code OS Invoice Management System is a Flask-powered web application designe
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/fruity-flicks-invoice.git
-   cd fruity-flicks-invoice
+   git clone https://github.com/your-username/code-os-invoice.git
+   cd code-os-invoice
    ```
 
 2. **Create and activate a virtual environment**
@@ -122,7 +122,7 @@ The Code OS Invoice Management System is a Flask-powered web application designe
 ## 📁 Project Structure
 
 ```
-fruity-flicks-invoice/
+code-os-invoice/
 ├── app/
 │   ├── __init__.py
 │   ├── routes.py
@@ -177,8 +177,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📬 Contact
 
-**Fruity Flicks Development Team**
+**Code OS Development Team**
 
-- Email: [your-email@example.com]
-- GitHub: [https://github.com/your-username]
-- Project Link: [https://github.com/your-username/fruity-flicks-invoice]
+- Email: [codeos285@gmail.com]
+- GitHub: [https://github.com/sakibumumuni]
+- Project Link: [https://github.com/sakibumumuni/code-os-invoice]
