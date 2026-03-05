@@ -32,21 +32,19 @@ def get_user_data():
 @app.route('/invoice', methods=['POST', 'GET'])
 def invoice():
    invoice_data = {
-      'clientname':request.form.get('clientname'),
-      'clientemail':request.form.get('clientemail'),
-      'clientaddress':request.form.get('clientaddress'),
-     'invoice_number':request.form.get('invoicenumber'),
-    'issuedate':request.form.get('issuedate'),
-    'duedate':request.form.get('duedate'),
-    'itemdescription':request.form.get('itemdescription'),
+      'client_name':request.form.get('client_name'),
+      'email_address':request.form.get('email_address'),
+      'address':request.form.get('address'),
+     'invoice_number':request.form.get('invoice_number'),
+    'issue_date':request.form.get('issue_date'),
+    'due_date':request.form.get('due_date'),
+    'invoice_itemdescription':request.form.get('invoice_itemdescription'),
     'quantity':request.form.get('quantity'),
-    'unitprice':request.form.get('unitprice'),
+    'price':request.form.get('price'),
     'subtotal':request.form.get('subtotal'),
     'tax':request.form.get('tax'),
     'total':request.form.get('total')
-
-
-           }
+     }
 if __name__ == '__main__':
  port = int(os.environ.get('PORT', 5000))
  app.run(debug=True, host='0.0.0.0', port=port)
