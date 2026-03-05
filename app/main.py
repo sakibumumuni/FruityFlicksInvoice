@@ -16,7 +16,7 @@ print(client.list_database_names())
 def get_user_data():
         if request.method == 'POST':
         # get data from the form
-         user_data =( {
+         user_data = {
             'companyname': request.form.get('companyname'),
             'emailaddress': request.form.get('emailaddress'),
             'phonenumber': request.form.get('phonenumber'),
@@ -24,8 +24,8 @@ def get_user_data():
             'taxid': request.form.get('taxid'),
             'financialyear-startdate': request.form.get('financialyear-startdate'), 
             'financialyear-enddate': request.form.get('financialyear-enddate')
-         })
-        CODE_OS.insert_one(user_data)
+         }
+         CODE_OS.insert_one(user_data)
         return render_template('base.html')
 
 if __name__ == '__main__':
