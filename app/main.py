@@ -11,14 +11,12 @@ client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
 CODE_OS = db.CODE_OS
 print(client.list_database_names())
-@app.route('/', methods = ['GET'])
-def home():
-     return render_template('base.html')
-
-@app.route('/company_data', methods=['POST'])
+     
+@app.route('/company_data', methods=['POST', 'GET'])
 def get_user_data():
+        if request.method == 'POST':
         # get data from the form
-        user_data = {
+         user_data =( {
             'companyname': request.form.get('companyname'),
             'emailaddress': request.form.get('emailaddress'),
             'phonenumber': request.form.get('phonenumber'),
@@ -26,8 +24,9 @@ def get_user_data():
             'taxid': request.form.get('taxid'),
             'financialyear-startdate': request.form.get('financialyear-startdate'), 
             'financialyear-enddate': request.form.get('financialyear-enddate')
-         }
+         })
         CODE_OS.insert_one(user_data)
+        return render_template('base.html', user_data=user_data)
       
 
 if __name__ == '__main__':
