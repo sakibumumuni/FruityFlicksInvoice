@@ -1,5 +1,5 @@
 import bson.json_util
-
+import base64
 from flask import Flask, render_template, request
 from pymongo import MongoClient
 import os
@@ -25,8 +25,9 @@ def get_user_data():
             'taxid': request.form.get('taxid'),
             'financialyear-startdate': request.form.get('financialyear-startdate'), 
             'financialyear-enddate': request.form.get('financialyear-enddate'),
-            'companylogo':request.form.get('companylogo')
-         }
+            'companylogo':request.files.get('companylogo'),
+            'companylogo':base64.b64encode(request.files.get('companylogo').read()).decode('utf-8'),  
+                  }
          CODE_OS.insert_one(user_data)
         return render_template('base.html')
 @app.route('/invoice', methods=['POST', 'GET'])
