@@ -5,7 +5,7 @@ from pymongo import MongoClient
 import os
 
 import pymongo
-app=Flask(__name__, template_folder='template')
+app=Flask(__name__)
 MONGO_URL = ('mongodb+srv://code_os:codeos285@cluster0.rcvvqsb.mongodb.net/?appName=Cluster0')
 client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
@@ -27,8 +27,7 @@ def get_user_data():
          })
         CODE_OS.insert_one(user_data)
         return render_template('base.html')
-      
 
 if __name__ == '__main__':
  port = int(os.environ.get('PORT', 5000))
- app.run(debug=True,host='0.0.0.0', port=port)
+ app.run(debug=True, host='0.0.0.0', port=port)
