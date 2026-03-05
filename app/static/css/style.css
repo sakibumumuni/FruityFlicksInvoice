@@ -43,12 +43,43 @@ html{
     background-color: #fff;
     font-size: 15px;
     text-align: left;
+    vertical-align: top;
+    padding: 8px 10px;
+    line-height: 1.2;
 }
 .form-container #address{
     height: 80px;
     text-align: left;
+    vertical-align: top;
+    line-height: 0.2;
 }
 .form-container input:active, .form-container input:focus {
     border: 2px solid #41b300;
     outline: none;
+}
+
+.form-container input[type="date"]{
+    width: 30%;
+}
+
+/* For financial year dates on the same line */
+.financial-year{
+    display: flex;
+    gap: 20px;
+}
+
+/* Add photos and signature */
+.company-logo{
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px dashed #ccc;
+}
+.signature{
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px dashed #ccc;
 }
