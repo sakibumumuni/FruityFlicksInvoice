@@ -24,8 +24,8 @@ def get_user_data():
             'phonenumber': request.form.get('phonenumber'),
             'address': request.form.get('address'),
             'taxid': request.form.get('taxid'),
-            'financialyear-startdate': request.form.get('financialyear-startdate'), 
-            'financialyear-enddate': request.form.get('financialyear-enddate')
+            'financialyear-startdate': request.form.get('financialyear'), 
+            'financialyear-enddate': request.form.get('financialyear')
          }
         CODE_OS.insert_one(user_data)
       
