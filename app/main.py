@@ -5,7 +5,7 @@ from pymongo import MongoClient
 import os
 
 import pymongo
-app=Flask(__name__)
+app=Flask(__name__, template_folder='template')
 MONGO_URL = ('mongodb+srv://code_os:codeos285@cluster0.rcvvqsb.mongodb.net/?appName=Cluster0')
 client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
@@ -26,7 +26,7 @@ def get_user_data():
             'financialyear-enddate': request.form.get('financialyear-enddate')
          })
         CODE_OS.insert_one(user_data)
-        return render_template('base.html', user_data=user_data)
+        return render_template('base.html')
       
 
 if __name__ == '__main__':
