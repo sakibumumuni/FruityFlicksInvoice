@@ -15,14 +15,15 @@
         <br>
         <!-- The form -->
         <section class="form-container">
-            <form action="/company_data" method="POST">
+            <form action="/company_data" method="POST" enctype="multipart/form-data">
                 <section>
                     <p><label for="companyname"> Company Name</label><br> <input type="text" id="companyname" name="companyname" required placeholder="Enter company name"></p>
                     <p><label for="emailaddress"> Email Address</label><br> <input type="email" id="emailaddress" name="emailaddress" required placeholder="company@example.com"></p>
                     <p><label for="phonenumber"> Phone Number</label><br> <input type="tel" id="phonenumber" name="phonenumber" required placeholder="+233 020 000 000"></p>
                     <p><label for="address"> Address</label><br><input id="address" name="address" required placeholder="Enter complete address"></input></p>
-                    <div class="company-logo"></div>
-                    <br>
+                    <p><label for="companylogo"> Company Logo</label><br><input type="file" accept="image/*" name="companylogo">"
+                    <button type="submit">Save</button>
+                
                 <div class="signature"></div>
                 </section>
             <p><label for="taxid"> Tax ID/Regitration Number</label><br> <input type="text" id="taxid" name="taxid" required></p>
