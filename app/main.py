@@ -11,12 +11,10 @@ client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
 CODE_OS = db.CODE_OS
 print(client.list_database_names())
-     
+     # This was to get user data from the first page, and then save it in the database, so that I can retrieve it when I need to generate an invoice for the company
 @app.route('/company_data', methods=['POST', 'GET'])
 def get_user_data():
-        if request.method == 'POST':
-        # get data from the , this is to send the company's details into our databse, so that we have access to their basic information, in case we deploy the system for them,
-        # or better still to help keep track of anyone from the company who logs in to the sytem, so the company holds them accountable for any invoice they generated 
+        if request.method == 'POST': 
          user_data = {
             'companyname': request.form.get('companyname'),
             'emailaddress': request.form.get('emailaddress'),
