@@ -22,15 +22,20 @@
                         <p><label for="emailaddress" class="required">Email Address</label><input type="email" id="emailaddress" name="emailaddress" required placeholder="company@example.com"></p>
                         <p><label for="phonenumber" class="required">Phone Number</label><input type="tel" id="phonenumber" name="phonenumber" required placeholder="+233 020 000 000"></p>
                         <p><label for="address" class="required">Address</label><textarea id="address" name="address" required placeholder="Enter complete address"></textarea></p>
-
+                        
                     </section>
                     <section class="company-uploads">
                         <div class="upload-box">
                             <label>
-                                <input type="file" name="logo" id="logo" accept="image/png, image/jpeg" style="display: none;">
-                            <span class="upload-label">Company Logo</span>
+                                <input type="file" name="logo" id="logo" accept="image/png, image/jpeg" style="display: none;"> 
+                                <span class="upload-label">Company Logo</span>
                             <div class="company-logo">
                                 <span class="upload-text">Click to upload logo<br>PNG, JPG up to 5MB</span>
+                                {% if encode_logo %}
+                                 <img src="data:image/png;base64,{{ encode_logo }}" alt="Company Logo">
+                                    {% else %}
+                                <p>No logo uploaded yet</p>
+                                {% endif %}
                             </div>
                             </label>
                         </div>

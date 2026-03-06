@@ -16,11 +16,13 @@ CODE_OS = db.CODE_OS
      # This was to get user data from the first page, and then save it in the database, so that I can retrieve it when I need to generate an invoice for the company
 @app.route('/company_data', methods=['POST', 'GET'])
 def get_user_data():
+      encode_logo = None
       if request.method == 'POST': 
          logo = request.files.get('logo') # this is to get the logo from the form, and then I will encode it and save it in the database, so that I can retrieve it when I need to generate an invoice for the company
          if logo:
           logo_data = logo.read() # read the logo data as bytes, so that I can encode it and save it in the database, so that I can retrieve it when I need to generate an invoice for the company
-         encode_logo = base64.b64encode(logo_data).decode('utf-8')
+          encode_logo = base64.b64encode(logo_data).decode('utf-8') if logo else None
+          print(encode_logo[:50] if encode_logo else "No logo received")
           # add logo into the same document as the user data, so that I can retrieve it when I need to generate an invoice for the company
          user_data = {
             'companyname': request.form.get('companyname'),
@@ -29,14 +31,15 @@ def get_user_data():
             'address': request.form.get('address'),
             'taxid': request.form.get('taxid'),
             'financialyear-startdate': request.form.get('financialyear-startdate'), 
-            'financialyear-enddate': request.form.get('financialyear-enddate'),  
+            'financialyear-enddate': request.form.get('financialyear-enddate'), 
+            'logo':encode_logo # I passes the encoded logo back into the user_data dictional so as to retain it on the home page 
          }
          user_data['logo'] = encode_logo # this is to add the encoded logo into the user data dictionary, so that I can save it in the database, and then I can retrieve it when I need to generate an invoice for the company
          db.CODE_OS.insert_one(user_data)  # this is to save the user data in the database, so that I can retrieve it when I need to generate an invoice for the company, and then when the user fills in the company data on the first page, which is the base.html template, and then when they click on the "Save & Continue" button, it will take them to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company
 
          return redirect('/createinvoice') # this is to redirect the user to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company, after they have filled in the company data on the first page, which is the base.html template, and then when they click on the "Save & Continue" button, it will take them to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company
          
-      return render_template('base.html') # this information here will be in the base.html template, which is the first page that the user will see when they open the app, and then when they click on the "Create Invoice" button, it will take them to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company
+      return render_template('base.html', encode_logo = encode_logo) # this information here will be in the base.html template, which is the first page that the user will see when they open the app, and then when they click on the "Create Invoice" button, it will take them to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company
 @app.route('/createinvoice', methods=['POST', 'GET'])
 def invoice():
    if request.method == 'POST':
