@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/app/static/css/style.css">
-    <link rel="shortcut icon" href="favicon.icon" type="/x-icon">
+    <link rel="shortcut icon" href="/app/template/favicon.jpg" type="/x-icon">
     <title>MELS</title>
 </head>
 <body>
@@ -16,25 +16,52 @@
         <!-- The form -->
         <section class="form-container">
             <form action="">
-                <section>
-                    <p><label for="companyname"> Company Name</label><br> <input type="text" id="companyname" name="companyname" required placeholder="Enter company name"></p>
-                    <p><label for="emailaddress"> Email Address</label><br> <input type="email" id="emailaddress" name="emailaddress" required placeholder="company@example.com"></p>
-                    <p><label for="phonenumber"> Phone Number</label><br> <input type="tel" id="phonenumber" name="phonenumber" required placeholder="+233 020 000 000"></p>
-                    <p><label for="address"> Address</label><br><input id="address" name="address" required placeholder="Enter complete address"></input></p>
-                    <div class="company-logo"></div>
-                    <br>
-                <div class="signature"></div>
-                </section>
-            <p><label for="taxid"> Tax ID/Regitration Number</label><br> <input type="text" id="taxid" name="taxid" required></p>
-            <br>
-            <p>Financial Year</p>
-            <div class="financial-year">
-                <p><input type="date" id="financialyear-startdate" name="financialyear-startdate" required> <br><label for="financialyear-startdate">Start Date</label></p>
-                <p><input type="date" id="financialyear-enddate" name="financialyear-enddate" required> <br><label for="financialyear-enddate">End Date</label></p>
-            </div>
+                <div class="form-wrapper">
+                    <section class="form-inputs">
+                        <p><label for="companyname" class="required">Company Name</label><input type="text" id="companyname" name="companyname" required placeholder="Enter company name"></p>
+                        <p><label for="emailaddress" class="required">Email Address</label><input type="email" id="emailaddress" name="emailaddress" required placeholder="company@example.com"></p>
+                        <p><label for="phonenumber" class="required">Phone Number</label><input type="tel" id="phonenumber" name="phonenumber" required placeholder="+233 020 000 000"></p>
+                        <p><label for="address" class="required">Address</label><textarea id="address" name="address" required placeholder="Enter complete address"></textarea></p>
+
+                    </section>
+                    <section class="company-uploads">
+                        <div class="upload-box">
+                            <label>
+                                <input type="file" name="logo" id="" accept="image/png, image/jpeg" style="display: none;">
+                            <span class="upload-label">Company Logo</span>
+                            <div class="company-logo">
+                                <span class="upload-text">Click to upload logo<br>PNG, JPG up to 5MB</span>
+                            </div>
+                            </label>
+                        </div>
+                        <div class="upload-box">
+                            <label>
+                                <input type="file" name="signature" id="" accept="image/png, image/jpeg" style="display: none;">
+                            <span class="upload-label">Digital Signature</span>
+                            <div class="signature">
+                                <span class="upload-text">Click to upload signature<br>PNG, JPG up to 2MB</span>
+                            </div>
+                        </div>
+                        <div class="company-extra">
+                            <p><label for="taxid" class="required">Tax ID/Registration Number</label><input type="text" id="taxid" name="taxid" required></p>
+                            <p class="section-heading">Financial Year</p>
+                            <div class="financial-year">
+                                <div class="date-field">
+                                    <input type="date" id="financialyear-startdate" name="financialyear-startdate" required>
+                                    <label for="financialyear-startdate">Start Date</label>
+                                </div>
+                                <div class="date-field">
+                                    <input type="date" id="financialyear-enddate" name="financialyear-enddate" required>
+                                    <label for="financialyear-enddate">End Date</label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             <button type="submit">Save & Continue</button>
             </form>
         </section>
     </section>
+    
 </body>
 </html>
