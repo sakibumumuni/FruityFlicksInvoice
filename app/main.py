@@ -52,6 +52,7 @@ def invoice():
          'price':request.form.get('price'),
          'total':request.form.get('total')
       }
+      db.CODE_OS.insert_one(invoice_data) 
       #user = db.CODE_OS.find_one({'_id': session['user_id']}) # this is to retrieve the company logo from the database, so that I can display it on the invoice template, when I generate an invoice for the company
    #encode_logo = user['logo']
 
