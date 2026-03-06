@@ -2,9 +2,11 @@ import bson.json_util
 import base64
 from flask import Flask, render_template, request, session
 from pymongo import MongoClient
+from dotenv import load_dotenv # this is to handle the .env file, which is used to store the environment variables, such as the MongoDB connection string, so that I can access it in my code, and then I can use it to connect to the MongoDB database, and then I can save the user data in the database, so that I can retrieve it when I need to generate an invoice for the company
 import os
 
 import pymongo
+load_dotenv() # loads the .env file, so that I can access the environment variables, such as the MongoDB connection string, which is stored in the .env file, and then I can use it to connect to the MongoDB database, and then I can save the user data in the database, so that I can retrieve it when I need to generate an invoice for the company
 app=Flask(__name__)
 MONGO_URL = os.environ.get('MONGO_URL')
 client =pymongo.MongoClient(MONGO_URL)
