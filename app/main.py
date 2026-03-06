@@ -6,7 +6,7 @@ import os
 
 import pymongo
 app=Flask(__name__)
-MONGO_URL = ('mongodb+srv://code_os:codeos285@cluster0.rcvvqsb.mongodb.net/?appName=Cluster0')
+MONGO_URL = os.environ.get('MONGO_URL')
 client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
 CODE_OS = db.CODE_OS
