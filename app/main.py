@@ -7,12 +7,12 @@ import os
 
 import pymongo
 load_dotenv() # loads the .env file, so that I can access the environment variables, such as the MongoDB connection string, which is stored in the .env file, and then I can use it to connect to the MongoDB database, and then I can save the user data in the database, so that I can retrieve it when I need to generate an invoice for the company
-app=Flask(__name__)
+app=Flask(__name__, static_folder='static', template_folder='templates') 
 MONGO_URL = os.environ.get('MONGO_URL')
+print(MONGO_URL)
 client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
 CODE_OS = db.CODE_OS
-print(client.list_database_names())
      # This was to get user data from the first page, and then save it in the database, so that I can retrieve it when I need to generate an invoice for the company
 @app.route('/company_data', methods=['POST', 'GET'])
 def get_user_data():
