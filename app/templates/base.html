@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app/static/css/style.css">
-    <link rel="shortcut icon" href="/app/template/favicon.jpg" type="/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}" type="image/x-icon">
     <title>MELS</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <br>
         <!-- The form -->
         <section class="form-container">
-            <form action="">
+            <form action="/company_data" method = 'POST' enctype="multipart/form-data">
                 <div class="form-wrapper">
                     <section class="form-inputs">
                         <p><label for="companyname" class="required">Company Name</label><input type="text" id="companyname" name="companyname" required placeholder="Enter company name"></p>
@@ -27,7 +27,7 @@
                     <section class="company-uploads">
                         <div class="upload-box">
                             <label>
-                                <input type="file" name="logo" id="" accept="image/png, image/jpeg" style="display: none;">
+                                <input type="file" name="logo" id="logo" accept="image/png, image/jpeg" style="display: none;">
                             <span class="upload-label">Company Logo</span>
                             <div class="company-logo">
                                 <span class="upload-text">Click to upload logo<br>PNG, JPG up to 5MB</span>
