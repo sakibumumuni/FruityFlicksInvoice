@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app/static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Document</title>
 </head>
 <body class="invoice-container">
@@ -11,7 +11,7 @@
         <h1>Create New Incoice</h1>
         <p>Fill in the details below to generate a new invoice</p>
         <div class="invoice-form">
-            <form action="/submit_invoice" method="POST">
+            <form action="/createinvoice" method="POST" enctype ="multipart/form-data">
                 <div class="invoice-form-wrapper">
                     <div class="client_information">
                         <h3>Client Information</h3>
@@ -44,8 +44,7 @@
                             <label for="price">Price:</label>
                             <input type="number" step="0.01" id="price" name="price" required>
                             <label for="total">Total</label>
-                            
-
+                            <input type="number" step="0.01" id="total" name="total" required>
                             <button type="button" onclick="removeItem(this)">Remove</button>
                             <button type="button" onclick="addItem()">Add Item</button>
                              <input type="submit" value="Submit Invoice">

@@ -34,7 +34,7 @@ def get_user_data():
          db.CODE_OS.insert_one(user_data)  # I encoded the logo and saved it in the database, so that I can retrieve it when I need to generate an invoice for the company
 
         return render_template('base.html') # this information here will be in the base.html template, which is the first page that the user will see when they open the app, and then when they click on the "Create Invoice" button, it will take them to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company
-@app.route('/invoice', methods=['POST', 'GET'])
+@app.route('/createinvoice', methods=['POST', 'GET'])
 def invoice():
    if request.method == 'POST':
       invoice_data = {
