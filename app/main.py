@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import os
 
 import pymongo
+from pymongo.results import InsertOneResult
 app=Flask(__name__)
 MONGO_URL = ('mongodb+srv://code_os:codeos285@cluster0.rcvvqsb.mongodb.net/?appName=Cluster0')
 client =pymongo.MongoClient(MONGO_URL)
@@ -24,13 +25,14 @@ def get_user_data():
             'financialyear-startdate': request.form.get('financialyear-startdate'), 
             'financialyear-enddate': request.form.get('financialyear-enddate'),  
          }
-        companylogo = request.files.get('companylogo')
-        logo_data = companylogo.read()
-        encode_logo = base64.b64encode(logo_data).decode('utf-8')
-        saved_encryption = db.CODE_OS.insert_one(encode_logo)  # I encoded the logo and saved it in the database, so that I can retrieve it when I need to generate an invoice for the company
+         logo = request.files.get('logo') # this is to get the logo from the form, and then I will encode it and save it in the database, so that I can retrieve it when I need to generate an invoice for the company
+         if logo:
+           logo_data = logo.read() # read the logo data as bytes, so that I can encode it and save it in the database, so that I can retrieve it when I need to generate an invoice for the company
+           encode_logo = base64.b64encode(logo_data).decode('utf-8')
+           user_data['logo'] = encode_logo # add logo into the same document as the user data, so that I can retrieve it when I need to generate an invoice for the company
+         db.CODE_OS.insert_one(user_data)  # I encoded the logo and saved it in the database, so that I can retrieve it when I need to generate an invoice for the company
 
-            
-        return render_template('base.html')
+        return render_template('base.html') # this information here will be in the base.html template, which is the first page that the user will see when they open the app, and then when they click on the "Create Invoice" button, it will take them to the createinvoice.html template, where they can fill in the invoice details and generate an invoice for their company
 @app.route('/invoice', methods=['POST', 'GET'])
 def invoice():
    if request.method == 'POST':
@@ -48,8 +50,8 @@ def invoice():
          'tax':request.form.get('tax'),
          'total':request.form.get('total')
       }
-      user = db.CODE_OS.insert({'_id': session['user_id']}) # this is to retrieve the company logo from the database, so that I can display it on the invoice template, when I generate an invoice for the company
-      encode_logo = user['companylogo']
+      user = db.CODE_OS.find_one({'_id': session['user_id']}) # this is to retrieve the company logo from the database, so that I can display it on the invoice template, when I generate an invoice for the company
+      encode_logo = user['logo']
 
       return render_template('createinvoice.html', encode_logo = encode_logo)
    #return render_template('createinvoice.html', encode_logo = encode_logo) # this information here will be in the createinvoice.html template
