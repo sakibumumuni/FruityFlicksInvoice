@@ -6,6 +6,8 @@ html{
 }
 
 
+
+/* BASE.HTML DESIGNS */
 /* Container that holds everything */
 .container {
     max-width: 900px;
@@ -208,4 +210,55 @@ html{
 
 .form-container button:hover {
     background-color: #3aa500;
+}
+
+
+/* Create AN INVOICE section */
+
+.invoice-container {
+    background: linear-gradient(90deg, rgb(238, 255, 232), #ffffff);
+    padding: 0px 30px; 
+}
+
+.invoice-form{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.invoice-form input{
+    background: #f4f6fc;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    display: block;
+    margin: 8px 0px;
+    min-width: 450px;
+    height: 40px;
+    width: 100%;
+}
+.invoice-form input:active, .invoice-form input:focus, .invoice-form textarea:active, .invoice-form textarea:focus {
+    border: 2px solid #41b300;
+    outline: none;
+}
+.invoice-form .required:after{
+    content: " *";
+    color: rgb(26, 221, 0);
+}
+.invoice-form textarea{
+    background: #f4f6fc;
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    display: block;
+    margin: 8px 0px;
+    resize: none;
+}
+
+/* Side by side placement */
+.invoice-form .invoice-form-wrapper{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
 }
