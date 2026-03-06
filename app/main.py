@@ -5,7 +5,6 @@ from pymongo import MongoClient
 import os
 
 import pymongo
-from pymongo.results import InsertOneResult
 app=Flask(__name__)
 MONGO_URL = ('mongodb+srv://code_os:codeos285@cluster0.rcvvqsb.mongodb.net/?appName=Cluster0')
 client =pymongo.MongoClient(MONGO_URL)
