@@ -23,7 +23,7 @@ def get_user_data():
             'taxid': request.form.get('taxid'),
             'financialyear-startdate': request.form.get('financialyear-startdate'), 
             'financialyear-enddate': request.form.get('financialyear-enddate'),  
-        } 
+         }
         companylogo = request.files.get('companylogo')
         logo_data = companylogo.read()
         encode_logo = base64.b64encode(logo_data).decode('utf-8')
