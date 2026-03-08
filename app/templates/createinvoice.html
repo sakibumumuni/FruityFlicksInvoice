@@ -15,8 +15,9 @@
         <div class="invoice-form">
             <form action="/createinvoice" method="POST">
                 <div class="invoice-form-wrapper">
+                    <!--This is to pick the returned image from the database-->
                     {% if logo_fetch and logo_fetch.logo %}
-                       <div style="width:150px; height:150px; border:1px solid #ddd; border-radius:4px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                       <div style="width:200px; height:200px; border:1px solid #ddd; border-radius:4px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
                        <img src="data:{{ logo_fetch.logo_mime }};base64,{{ logo_fetch.logo }}" alt="Company Logo" style="max-width:100%; max-height:100%; object-fit:contain;">
                        </div>
                     {% else %}
