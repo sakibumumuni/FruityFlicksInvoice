@@ -217,7 +217,35 @@ html{
 
 .invoice-container {
     background: linear-gradient(90deg, rgb(238, 255, 232), #ffffff);
-    padding: 0px 30px; 
+    padding: 0px 50px; 
+}
+
+/* Making The form Appear better on wider screens to eleminate extra space */
+@media (min-width: 1200px) {
+    .invoice-container {
+        padding: 0px 110px;
+    }
+}
+
+/* Company Logo */
+
+.invoice-company-logo, .invoice-company-nologo {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.invoice-title{
+    margin-left: 100px;
+}
+
+.invoice-header {
+    margin-bottom: 30px;
+    position: relative;
 }
 
 .invoice-form{
