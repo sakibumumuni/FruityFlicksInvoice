@@ -22,11 +22,11 @@ def get_user_data():
          if logo and logo.filename:
           logo_data = logo.read() # read the logo data as bytes, so that I can encode it and save it in the database, so that I can retrieve it when I need to generate an invoice for the company
           encode_logo = base64.b64encode(logo_data).decode('utf-8')
-          logo_mime = logo.content_type
+          logo_mime = logo.content_type # tells the browser the type of image the user uploaded
          else:
-          existing = db.CODE_OS.find_one(sort=[("_id", -1)])
-          encode_logo = existing.get('logo') if existing else None
-          logo_mime = existing.get("logo_mime") if existing else None
+          existing = db.CODE_OS.find_one(sort=[("_id", -1)]) # finding alraedy existing image in the database if no image was uploaded again
+          encode_logo = existing.get('logo') if existing else None # encodes already existing logo
+          logo_mime = existing.get("logo_mime") if existing else None # getting the image type of the already existing logo n the database
          # This runs for both cases (new logo or existing logo)
          user_data = {
             'companyname': request.form.get('companyname'),
@@ -61,7 +61,7 @@ def invoice():
          'total':request.form.get('total')
       }
       db.CODE_OS.insert_one(invoice_data) 
-   logo_fetch = db.CODE_OS.find_one({"logo": {"$exists": True, "$ne": None}}, sort=[("_id", -1)]) # get the latest entry  
+   logo_fetch = db.CODE_OS.find_one({"logo": {"$exists": True, "$ne": None}}, sort=[("_id", -1)]) # get the latest document from the databse with a logo stored in it
    return render_template('createinvoice.html', logo_fetch = logo_fetch) 
 
 if __name__ == '__main__':
