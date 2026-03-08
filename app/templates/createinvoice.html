@@ -10,10 +10,21 @@
 <body class="invoice-container">
     <!-- <div class="invoice-container"> -->
         <h1>Create New Invoice</h1>
-        <p>Fill in the details below to generate a new invoice</p>
+        <p>Fill in the details below to generate a new invoice</p>         
+            </div>
         <div class="invoice-form">
             <form action="/createinvoice" method="POST">
                 <div class="invoice-form-wrapper">
+                    <!--This is to pick the returned image from the database-->
+                    {% if logo_fetch and logo_fetch.logo %}
+                       <div style="width:200px; height:200px; border:1px solid #ddd; border-radius:4px; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+                       <img src="data:{{ logo_fetch.logo_mime }};base64,{{ logo_fetch.logo }}" alt="Company Logo" style="max-width:100%; max-height:100%; object-fit:contain;">
+                       </div>
+                    {% else %}
+                        <div style="width:150px; height:150px; border:2px dashed #ccc; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#999; font-size:14px;">
+                     No logo
+                </div>
+                    {% endif %}
                     <div class="BILL_TO">
                         <h3>BILL TO:</h3>
                         <label for="client_name" class="required" ><span></span> Client Name</label>

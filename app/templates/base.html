@@ -31,11 +31,6 @@
                                 <span class="upload-label">Company Logo</span>
                             <div class="company-logo">
                                 <span class="upload-text">Click to upload logo<br>PNG, JPG up to 5MB</span>
-                                {% if encode_logo %}
-                                 <img src="data:image/png;base64,{{ encode_logo }}" alt="Company Logo">
-                                    {% else %}
-                                <p>No logo uploaded yet</p>
-                                {% endif %}
                             </div>
                             </label>
                         </div>
