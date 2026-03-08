@@ -273,19 +273,3 @@ html{
     position: relative;
     right: 10px;
 }
-
-/* Move date picker icon to the left for issue date and due date */
-#issue_date::-webkit-calendar-picker-indicator,
-#due_date::-webkit-calendar-picker-indicator {
-    position: absolute;
-    left: 10px;
-    right: auto;
-    transform: translateY(-50%);
-    top: 50%;
-}
-
-#issue_date,
-#due_date {
-    position: relative;
-    padding-left: 40px; /* Make room for the icon on the left */
-}
