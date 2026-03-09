@@ -9,7 +9,7 @@
 </head>
 <body class="invoice-container">
    <!--This is to pick the returned image from the database-->
-        <div class="invoice-header">
+<div class="invoice-header">
                 <div class="invoice-invoice">
                     <!-- {% if logo_fetch and logo_fetch.logo %} -->
                        <div class="invoice-company-logo">
@@ -25,7 +25,7 @@
                         <p>Fill in the details below to generate a new invoice</p>
                     </div>
                 </div>
-        </div>      
+</div>      
         <div class="invoice-form">
             <form action="/createinvoice" method="POST">
                 <div class="invoice-form-wrapper">
@@ -54,28 +54,30 @@
                         </div>   
                     </div>
                     <div>
-                            <h3>Invoice Items</h3>
-                            <label for="invoice_itemdescription">Description:</label>
-                            <input type="text" id="invoice_itemdescription" name="invoice_itemdescription" required>
-
-                            <label for="quantity">Quantity:</label>
-                            <input type="number" id="quantity" name="quantity" required>
-
-                            <label for="price">Price:</label>
-                            <input type="number" step="0.01" id="price" name="price" required>
-                            <label for="total">Total</label>
-                            <input type="number" step="0.01" id="total" name="total" required>
-                            <button type="button" onclick="removeItem(this)">Remove</button>
-                            <button type="button" onclick="addItem()">Add Item</button>
-                             <input type="submit" value="Submit Invoice">
+                        <div class="invoice-items-heading">
+                            <h3><span></span>Invoice Items</h3>
+                            <button type="button" onclick="addItem()" class="add-item-btn">Add Item</button>  
                         </div>
-                </div>    
+                            <table class="invoice-table">
+                                <tr class="table-heads">
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                    <th>Actions</th>
+                                </tr>
+                                 <tr class="table-details">
+                                    <td><input type="text" name="invoice_itemdescription" required class="invoice-table-description" placeholder="Enter item description"></td>
+                                    <td><input type="number" name="quantity" required></td>
+                                    <td><input type="number" step="0.01" name="price" required></td>
+                                    <td><input type="number" step="0.01" name="total" required></td>
+                                    <td>
+                                        <button type="button" onclick="removeItem(this)">Remove</button>
+                                    </td>
+                            </table>
+                        </div>
+                    </div>  
             </form>
-                            <input type="submit" value="Submit Invoice">
-                    </div>
-                </div>
         </div>
-         </form>
-    <!-- </div> -->
 </body>
 </html>

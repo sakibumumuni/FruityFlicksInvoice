@@ -30,7 +30,7 @@ html{
 /* Form Container */
 /* The elements in the form container */
 .form-container {
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     padding: 20px;
     border-radius: 10px;
     font-size: 1.1rem;
@@ -256,10 +256,11 @@ html{
 }
 
 .invoice-form input{
-    background: #f4f6fc;
+    background: #ffffff;
     border: 1px solid #8b8989;
     border-radius: 12px;
     display: block;
+    padding: 5px 10px;
     margin: 8px 0px;
     min-width: 500px;
     height: 50px;
@@ -275,7 +276,7 @@ html{
     color: rgb(26, 221, 0);
 }
 .invoice-form textarea{
-    background: #f4f6fc;
+    background: #ffffff;
     border: 1px solid #8b8989;
     border-radius: 12px;
     width: 100%;
@@ -292,6 +293,71 @@ html{
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
+}
+
+/* Invoice Table */
+.invoice-table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+.invoice-table .table-heads{
+    border: 1px solid #ddd;
+    border-collapse: separate;
+    border-radius: 10px 10px 0 0;
+    background-color: #f2f5fc;
+    text-align: left;
+}
+.invoice-table .table-heads th{
+    padding: 12px 8px !important; 
+    background-color: #f2f5fc;
+    text-align: left;
+}
+.invoice-table .table-details{
+    border: 1px solid #ddd;
+    border-top: none;
+    text-align: left;
+}
+.invoice-table .table-details td {
+    padding: 8px 12px;  
+}
+
+.invoice-items-heading{
+    display: flex;
+    justify-content: space-between;
+}
+.add-item-btn{
+    width: 130px;
+    height: 40px;
+    background-color: #38a54a;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+
+.add-item-btn::before{
+    content: "+";
+    margin-right: 5px;
+    font-size: 20px;
+}
+.add-item-btn:hover{
+    background-color: #2e8b3c;
+    cursor: pointer;
+}
+
+.invoice-table td input{   
+    width: 80px !important;        
+    min-width: 0;                 
+    padding: 4px 6px;            
+}
+/* Making the description have full width on large screens */
+@media (min-width: 1200px) {
+    .invoice-table .invoice-table-description {
+        width: 600px !important;
+    }
 }
 
 /* Date picker styling */
