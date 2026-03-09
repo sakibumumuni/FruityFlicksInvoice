@@ -217,7 +217,9 @@ html{
 
 .invoice-container {
     background: linear-gradient(90deg, rgb(238, 255, 232), #ffffff);
-    padding: 0px 50px; 
+    padding: 0px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 /* Making The form Appear better on wider screens to eleminate extra space */
@@ -253,6 +255,7 @@ html{
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
     padding: 30px !important;
     border-radius: 10px;
+    max-width: 100%;
 }
 
 .invoice-form input{
@@ -262,7 +265,7 @@ html{
     display: block;
     padding: 5px 10px;
     margin: 8px 0px;
-    min-width: 500px;
+    min-width: 430px;
     height: 50px;
     width: 100%;
     font-size: 0.9rem;
@@ -297,11 +300,17 @@ html{
 
 /* Invoice Table */
 .invoice-table{
-    width: 100%;
+    width: 95%;
     border-collapse: collapse;
     margin-top: 10px;
     border: 1px solid #ddd;
     border-radius: 10px;
+}
+@media (min-width: 1200px) {
+    .invoice-table {
+        width: 90% !important;
+        overflow-x: hidden;
+    }
 }
 .invoice-table .table-heads{
     border: 1px solid #ddd;
@@ -366,4 +375,17 @@ html{
     cursor: pointer;
     position: relative;
     right: 10px;
+}
+
+/* Total display styling */
+.total-display {
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+    font-weight: bold;
+}
+
+.total-display::before {
+    content: "$";
+    margin-right: 5px;
 }
