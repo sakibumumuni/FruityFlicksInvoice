@@ -1,6 +1,6 @@
 import bson.json_util
 import base64
-from flask import Flask, redirect, render_template, request, session
+from flask import Flask, redirect, render_template, request
 from pymongo import MongoClient
 from dotenv import load_dotenv # this is to handle the .env file, which is used to store the environment variables, such as the MongoDB connection string, so that I can access it in my code, and then I can use it to connect to the MongoDB database
 import os
@@ -14,7 +14,7 @@ client =pymongo.MongoClient(MONGO_URL)
 db = client.code_os_invoice_data
 CODE_OS = db.CODE_OS
      # This was to get user data from the first page, and then save it in the database, so that I can retrieve it when I need to generate an invoice for the company
-@app.route('/company_data', methods=['POST', 'GET'])
+@app.route('/userdata/v1.0', methods=['POST', 'GET'])
 def get_user_data():
       encode_logo = None # SO IT DOES NOT RETURN AN ERROR IF I HAVE NOT INSERED AN IMAGE YET
       if request.method == 'POST': 

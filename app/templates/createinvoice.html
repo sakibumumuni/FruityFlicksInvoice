@@ -12,15 +12,15 @@
    <!--This is to pick the returned image from the database-->
 <div class="invoice-header">
                 <div class="invoice-invoice">
-                     {% if logo_fetch and logo_fetch.logo %} 
+                  <!--   {% if logo_fetch and logo_fetch.logo %}--> 
                        <div class="invoice-company-logo">
                        <img src="data:{{ logo_fetch.logo_mime }};base64,{{ logo_fetch.logo }}" alt="Company Logo">
                        </div>
-                     {% else %} 
+                     <!-- {% else %} -->
                         <div class="invoice-company-nologo">
                         No logo
                         </div>
-                    {% endif %} 
+                    <!-- {% endif %} --> 
                     <div class="invoice-title">
                         <h1>Create New Invoice</h1>
                         <p>Fill in the details below to generate a new invoice</p>
