@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/app/static/css/style.css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}" type="image/x-icon">
     <title>MELS</title>
 </head>
@@ -31,16 +33,19 @@
                                 <span class="upload-label">Company Logo</span>
                             <div class="company-logo">
                                 <span class="upload-text">Click to upload logo<br>PNG, JPG up to 5MB</span>
+                                <img id="logo-preview" src="" alt="Logo preview" style="display:none; max-width:100%; max-height:100%;" />
                             </div>
                             </label>
                         </div>
                         <div class="upload-box">
                             <label>
-                                <input type="file" name="signature" id="" accept="image/png, image/jpeg" style="display: none;">
-                            <span class="upload-label">Digital Signature</span>
-                            <div class="signature">
-                                <span class="upload-text">Click to upload signature<br>PNG, JPG up to 2MB</span>
-                            </div>
+                                <input type="file" name="signature" id="signature" accept="image/png, image/jpeg" style="display: none;">
+                                <span class="upload-label">Digital Signature</span>
+                                <div class="signature">
+                                    <span class="upload-text">Click to upload signature<br>PNG, JPG up to 2MB</span>
+                                    <img id="signature-preview" src="" alt="Signature preview" style="display:none; max-width:100%; max-height:100%;" />
+                                </div>
+                            </label>
                         </div>
                         <div class="company-extra">
                             <p><label for="taxid" class="required">Tax ID/Registration Number</label><input type="text" id="taxid" name="taxid" required></p>
@@ -58,13 +63,10 @@
                         </div>
                     </section>
                 </div>
-    <input type="submit" value="Save & Continue" class="submit-btn">
-             
+        <button type="submit"><a href="dashboard.html">Submit and Continue</a></button>
             </form>
-
         </section>
-        
     </section>
-    
+     <script src="/app/static/js/main.js"></script>
 </body>
 </html>
