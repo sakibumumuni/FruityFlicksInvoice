@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='app/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.jpg') }}" type="image/x-icon">
     <title>Your Invoice</title>
 </head>
@@ -11,15 +11,6 @@
    <!--This is to pick the returned image from the database-->
 <div class="invoice-header">
                 <div class="invoice-invoice">
-                  <!--   {% if logo_fetch and logo_fetch.logo %}--> 
-                       <div class="invoice-company-logo">
-                       <img src="data:{{ logo_fetch.logo_mime }};base64,{{ logo_fetch.logo }}" alt="Company Logo">
-                       </div>
-                     <!-- {% else %} -->
-                        <div class="invoice-company-nologo">
-                        No logo
-                        </div>
-                    <!-- {% endif %} --> 
                     <div class="invoice-title">
                         <h1>Create New Invoice</h1>
                         <p>Fill in the details below to generate a new invoice</p>
@@ -29,17 +20,20 @@
         <div class="invoice-form">
             <form action="/createinvoice" method="POST">
                 <div class="invoice-form-wrapper">
-                    <div class="BILL_TO">
+                <div class="invoice-company-logo">
+                       <img src="data:{{ logo_fetch.logo_mime }};base64,{{ logo_fetch.logo }}" alt="Company Logo">
+                </div>
+                <div class="invoice-company-nologo">
+                </div>
+                <div class="BILL_TO">
                         <h3>BILL TO:</h3>
                         <label for="client_name" class="required" ><span></span> Client Name</label>
                         <input type="text" id="client_name" name="client_name" required placeholder="Enter Client Name" >
                         <label for="email_address" class="required" ><span></span> Email Address</label>
                         <input type="email" id="email_address" name="email_address" required placeholder="company@gmail.com">
-
                         <label for="address" class="required" ><span></span> Address:</label>
                         <textarea id="address" name="address" required placeholder="Enter Client Address"></textarea>
-                    </div>
-                    
+                </div>
                     <div id="invoice_details">
                         <h3><span></span>Invoice Details</h3>
                         <div class="invoice_details" >
@@ -51,11 +45,10 @@
                             <input type="date" id="due_date" name="due_date" required>
                         </div>   
                     </div>
-                    <div>
                         <div class="invoice-items-heading">
                             <h3><span></span>Invoice Items</h3>
                             <button type="button" onclick="addItem()" class="add-item-btn">Add Item</button>  
-                        </div>
+                        
                             <table class="invoice-table">
                                 <tr class="table-heads">
                                     <th>Description</th>
@@ -73,7 +66,7 @@
                                         <button type="button" onclick="removeItem(this)">Remove</button>
                                     </td>
                             </table>
-                        </div>
+                </div>
                     </div>  
             </form>
         </div>
