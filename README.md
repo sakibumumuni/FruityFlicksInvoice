@@ -1,78 +1,91 @@
-#  Code OS – Invoice Management System
+# Code OS – Invoice Management System
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![Flask](https://img.shields.io/badge/Flask-2.x-black?logo=flask)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-> A web-based invoice management system built with Flask for businesses, enabling seamless creation, tracking, and management of invoices.
+> A web-based invoice management system built with Flask and MongoDB for businesses, enabling seamless creation, tracking, and management of invoices with company branding.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [About the Project](#about-the-project)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
+- [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
 ---
 
-## 📌 About the Project
+## About the Project
 
-The Code OS Invoice Management System is a Flask-powered web application designed to help businesses manage their invoicing process efficiently. It allows users to [generate, download, view and search existing invoices, edit and delete invoices, track the payment status of invoices, categorize most frequent client groups to optimze sales, and save invoices in a database, all in one sysytem].
-# Managing
+The **Code OS Invoice Management System** is a Flask-powered web application designed to help small and medium-sized businesses manage their invoicing process efficiently. Users can set up their company profile with branding (logo and digital signature), then create professional invoices with dynamic line items — all persisted to MongoDB Atlas in the cloud.
+
+The system is actively under development, with a working invoicing core and several additional modules (dashboard analytics, reports, client management) planned for future releases.
 
 ---
 
-## ✨ Features
+## Features
 
-- [ ] Generate invoices
+### Implemented
+
+- **Company profile setup** — register your business name, email, phone, address, tax ID, and financial year dates
+- **Logo and signature upload** — upload a company logo and digital signature with live image preview; stored as base64 in the database
+- **Invoice creation** — create invoices with client billing details, invoice number, issue date, and due date
+- **Dynamic line items** — add or remove item rows on the fly with description, quantity, and price fields
+- **Real-time calculations** — item totals (quantity x price) update automatically as you type
+- **Cloud database** — all data is persisted to MongoDB Atlas for reliable, scalable storage
+
+### Planned
+
+- [ ] Dashboard with invoice analytics and summaries
 - [ ] View and search existing invoices
 - [ ] Edit and delete invoices
 - [ ] Track payment status (paid / unpaid / pending)
-- [ ] Download invoice as pdf
-- [ ] Categorize most frequent client groups [to note target sales clientss]
-- [ ] Save invoices in a single database
+- [ ] Download invoices as PDF
+- [ ] Client management and frequent customer categorization
+- [ ] Reports and sales insights
+- [ ] Settings and user preferences
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
-| Python | Backend logic |
-| Flask | Web framework |
-| HTML5 | Page structure / Jinja2 templating |
-| CSS3 | Styling and layout |
-| JavaScript | Frontend interactivity |
-|  SQLite3 / PostgreSQL / MongoDb] | Data storage |
+| **Python** | Backend logic |
+| **Flask** | Web framework and routing |
+| **MongoDB Atlas** | Cloud database (via PyMongo) |
+| **Jinja2** | Server-side HTML templating |
+| **HTML5** | Page structure |
+| **CSS3** | Styling and responsive layout |
+| **JavaScript** | Frontend interactivity and calculations |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - Python 3.x
 - pip
-- [virtualenv]
+- A [MongoDB Atlas](https://www.mongodb.com/atlas) account (or a local MongoDB instance)
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/code-os-invoice.git
-   cd code-os-invoice
+   git clone https://github.com/sakibumumuni/code_os_invoice.git
+   cd code_os_invoice
    ```
 
 2. **Create and activate a virtual environment**
@@ -83,84 +96,79 @@ The Code OS Invoice Management System is a Flask-powered web application designe
 
 3. **Install dependencies**
    ```bash
-   pip install -r requirements.txt
+   pip install flask pymongo python-dotenv
    ```
 
 4. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration (secret key, database URI, etc.)
+
+   Create a `.env` file in the project root:
+   ```
+   MONGO_URL='your_mongodb_atlas_connection_string'
    ```
 
-5. **Initialize the database**
+5. **Run the application**
    ```bash
-   flask db init
-   flask db migrate
-   flask db upgrade
+   python app/main.py
    ```
 
-6. **Run the application**
-   ```bash
-   flask run
-   ```
-
-7. Open your browser and navigate to `http://127.0.0.1:5000`
+6. Open your browser and navigate to `http://127.0.0.1:5000`
 
 ---
 
-## 💻 Usage
+## Usage
 
-1. Navigate to the **Invoices** section
-2. Fill in client details, items, and amounts 
-4. Click **New Invoice** to create an invoice (once created, the invoice is saved in a database/ MongoDb / postgreSQL or SQLite3)
-5. Download invoice as a pdf
-6. [View all issued invoices in a database, by clicking a daatabase button]
-7. View a chart that has the most frequent customer groups.
+1. **Set up your company profile** — on the landing page, enter your company details, upload your logo and digital signature, and submit
+2. **Create an invoice** — you'll be redirected to the invoice creation page where your company logo is displayed automatically
+3. **Add client details** — fill in the client's name, email, and address
+4. **Add line items** — enter item descriptions, quantities, and prices; totals calculate in real time
+5. **Submit** — the invoice is saved to the database
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-code-os-invoice/
+code_os_invoice/
 ├── app/
-│   ├── main.py
+│   ├── main.py                  # Flask application and routes
 │   ├── static/
 │   │   ├── css/
-│   │   │   └── style.css
+│   │   │   └── style.css        # Application styling
 │   │   └── js/
-│   │       └── main.js
+│   │       └── main.js          # Frontend logic and calculations
 │   └── templates/
-│       ├── base.html
-│       ├── dashboard.html
-        |-- invoicedatabase.html
-        |-- client.html
-        |-- reports.html
-        |-- settings.html
-        |-- createinvoice.html
-│           
-│          
-│      
-├── migrations/
-├── .env.example
-├── config.py
-├── requirements.txt
-├── run.py
+│       ├── base.html            # Company profile setup page
+│       ├── createinvoice.html   # Invoice creation form
+│       ├── dashboard.html       # Dashboard (planned)
+│       ├── invoicedatabase.html # Invoice database view (planned)
+│       ├── client.html          # Client management (planned)
+│       ├── report.html          # Reports (planned)
+│       └── settings.html        # Settings (planned)
+├── .env                         # Environment variables (not tracked in git)
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 📸 Screenshots
+## Roadmap
 
-<!-- Add screenshots of your application here once the UI is ready -->
-| Dashboard | Invoice View |
-|-----------|-------------|
-| ![Dashboard](screenshots/dashboard.png) | ![Invoice](screenshots/invoice.png) |
+| Phase | Milestone | Status |
+|-------|-----------|--------|
+| 1 | Company profile setup and logo upload | Done |
+| 2 | Invoice creation with dynamic line items | Done |
+| 3 | Dashboard with analytics and summaries | In progress |
+| 4 | Invoice database — view, search, edit, delete | Planned |
+| 5 | PDF export and download | Planned |
+| 6 | Payment status tracking | Planned |
+| 7 | Client management and reporting | Planned |
+| 8 | User authentication and settings | Planned |
 
 ---
 
-## 🤝 Contributing
+## Contributing
+
+Contributions are welcome! To get started:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/your-feature`)
@@ -170,16 +178,16 @@ code-os-invoice/
 
 ---
 
-## 📄 License
+## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 📬 Contact
+## Contact
 
 **Code OS Development Team**
 
-- Email: [codeos285@gmail.com]
-- GitHub: [https://github.com/sakibumumuni]
-- Project Link: [https://github.com/sakibumumuni/code_os_invoice]
+- Email: codeos285@gmail.com
+- GitHub: [sakibumumuni](https://github.com/sakibumumuni)
+- Project Link: [github.com/sakibumumuni/code_os_invoice](https://github.com/sakibumumuni/code_os_invoice)
